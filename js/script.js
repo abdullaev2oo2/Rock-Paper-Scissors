@@ -122,5 +122,12 @@ window.addEventListener('DOMContentLoaded', () =>{
 choices.forEach(choice => choice.addEventListener('click', play))
 window.addEventListener('click', clearModel)
 restart.addEventListener('click', restartGame)
+navigator.vibrate = navigator.vibrate;
 
+if (navigator.vibrate) {
+    document.body.addEventListener("click", function (ev) {
+        console.log("Time to shake")
+        navigator.vibrate(1000);
+    })
+}
 })
