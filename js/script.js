@@ -77,6 +77,13 @@ window.addEventListener('DOMContentLoaded', () =>{
             <i class="fas fa-hand-${computerChoice} fa-10x"></i>
             <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
             `
+            navigator.vibrate = navigator.vibrate;
+
+        if (navigator.vibrate) {
+            document.body.addEventListener("click", function (ev) {
+                navigator.vibrate(30, 30);
+            })
+        }
         }else if (winner === 'computer') {
             scoreBoard.computer++
             results.innerHTML = `
@@ -84,6 +91,13 @@ window.addEventListener('DOMContentLoaded', () =>{
             <i class="fas fa-hand-${computerChoice} fa-10x"></i>
             <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
             `
+            navigator.vibrate = navigator.vibrate;
+
+            if (navigator.vibrate) {
+                document.body.addEventListener("click", function (ev) {
+                    navigator.vibrate(50, 50);
+                })
+            }
         }else {
             // scoreBoard.player++
             // scoreBoard.computer++
@@ -97,6 +111,13 @@ window.addEventListener('DOMContentLoaded', () =>{
             <p> Player: ${scoreBoard.player} </p>
             <p> Computer: ${scoreBoard.computer} </p>
         `
+        navigator.vibrate = navigator.vibrate;
+
+        if (navigator.vibrate) {
+            document.body.addEventListener("click", function (ev) {
+                navigator.vibrate(10, 10);
+            })
+        }
         modal.style.display = "block"    
     }
 
@@ -122,12 +143,4 @@ window.addEventListener('DOMContentLoaded', () =>{
 choices.forEach(choice => choice.addEventListener('click', play))
 window.addEventListener('click', clearModel)
 restart.addEventListener('click', restartGame)
-navigator.vibrate = navigator.vibrate;
-
-if (navigator.vibrate) {
-    document.body.addEventListener("click", function (ev) {
-        console.log("Time to shake")
-        navigator.vibrate(1000);
-    })
-}
 })
